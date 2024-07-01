@@ -2,7 +2,12 @@ function add(numbers) {
     if (numbers === "") {
         return 0;
     } else {
-        return parseInt(numbers, 10);
+        const nums = numbers.split(",");
+        let sum = 0;
+        nums.forEach(num => {
+            sum += parseInt(num, 10);
+        });
+        return sum;
     }
 }
 
