@@ -10,9 +10,18 @@ function add(numbers) {
         }
         const nums = numbers.split(delimiter);
         let sum = 0;
+        const negatives = [];
         nums.forEach(num => {
-            sum += parseInt(num, 10);
+            const n = parseInt(num, 10);
+            if (n < 0) {
+                negatives.push(n);
+            } else {
+                sum += n;
+            }
         });
+        if (negatives.length > 0) {
+            throw new Error(`negative numbers not allowed: ${negatives.join(',')}`);
+        }
         return sum;
     }
 }

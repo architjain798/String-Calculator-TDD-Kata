@@ -19,3 +19,11 @@ test('should handle newlines between numbers', () => {
 test('should handle custom delimiters', () => {
     expect(add("//;\n1;2")).toBe(3);
 });
+
+test('should throw an error for negative numbers', () => {
+    expect(() => add("1,-2,3")).toThrow('negative numbers not allowed: -2');
+});
+
+test('should throw an error for multiple negative numbers', () => {
+    expect(() => add("//;\n1;-2;-3")).toThrow('negative numbers not allowed: -2,-3');
+});
